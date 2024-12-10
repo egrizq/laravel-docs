@@ -27,9 +27,9 @@ class UserController
   {
     // validated data
     $validatedData = $request->validate([
-      'name' => ['required', 'min:5', 'max:20'],
-      'email' => ['required', 'min:5', 'max:30'],
-      'password' => ['required', 'min:5', 'max:30'],
+      'name' => ['required', 'string', 'min:5', 'max:20'],
+      'email' => ['required', 'string', 'min:5', 'max:30', 'email'],
+      'password' => ['required', 'string', 'min:5', 'max:30'],
     ]);
 
     // check email is available or not

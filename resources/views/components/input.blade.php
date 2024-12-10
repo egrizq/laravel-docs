@@ -4,11 +4,11 @@
     $text = $name === 'password' ? 'password' : 'text';
 @endphp
 
-<div>
+<div class="flex flex-col gap-3">
     <p>
         {{ $title }}
     </p>
 
     <input type="{{ $text }}" name="{{ $name }}" placeholder="{{ $placeholder }}"
-        class="p-2 border border-black rounded-lg w-full">
+        class="p-3 border border-black rounded-lg w-full" required>
 </div>

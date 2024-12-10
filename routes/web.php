@@ -21,3 +21,6 @@ Route::post("/login", [UserController::class, 'login']);
 
 // logout
 Route::post('/logout', [UserController::class, 'logout']);
+
+// home
+Route::post('/photo', [MenuController::class, 'handle_photo']);
