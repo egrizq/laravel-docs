@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Contracts\Session\Session;
-use Illuminate\Support\Facades\DB;
-
 use Illuminate\Http\Request;
 
 class MenuController
@@ -13,7 +10,7 @@ class MenuController
   {
     $isSessionExist = $request->session()->has('email');
     if (!$isSessionExist) {
-      return view('welcome');
+      return view('welcome', ['notif' => true]);
     }
 
     $email = $request->session()->get('email');

@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\sendEmailExample;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use Exception;
+use Illuminate\Support\Facades\Mail;
 
 class UserController
 {
@@ -63,8 +65,6 @@ class UserController
         ->withErrors(['error' => 'An error occurred while creating the account. Please try again.'])
         ->withInput();
     }
-
-
   }
 
   public function login(Request $request)
@@ -106,6 +106,15 @@ class UserController
 
   public function logout(Request $request)
   {
+    $data = [
+      'message' => 
+      "
+        Account notification\n\nYou're already logout from you're account\n\nIgnore if this is you. If not report immidiately. \n
+      "
+    ];
+    
+    Mail::to('rizq.ramadhan17@gmail.com')->send(new sendEmailExample($data));
+
     // delete session
     $request->session()->forget('email');
 

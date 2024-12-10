@@ -18,7 +18,14 @@ npm install && npm run build
 
 ### Run after build
 
+First terminal
+
 ```bash
 npm run dev
+```
+
+Second terminal
+
+```bash
 php artisan serve
 ```
